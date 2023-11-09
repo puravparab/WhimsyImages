@@ -5,9 +5,13 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.title}>
-				<h1>whimsyimages</h1>
+				<Link href="/">
+					<h1>whimsyimages</h1>
+				</Link>
+				
 			</div>
 			<nav className={styles.nav}>
+				<Link href="#upload">Try it</Link>
 				<Link href="/pricing">Pricing</Link>
 				<Link href="/about">How it works</Link>
 			</nav>

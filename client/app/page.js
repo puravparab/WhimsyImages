@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import Upload from '../components/upload.js'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -15,7 +17,7 @@ export default function Home() {
 		// Change tswift image every 5 seconds
 		const tswiftInterval = setInterval(() => {
 			handleImgChange("tswift", (tswift + 1) % 3);
-		}, 4000);
+		}, 5000);
 		// Clean up intervals when the component is unmounted
 		return () => {
 			clearInterval(tswiftInterval);
@@ -37,7 +39,6 @@ export default function Home() {
 	// example: tswift, mj
 	// number: 0, 1, 2, etc
 	const handleImgChange = (example, number) => {
-		console.log(number)
 		if (example == "tswift"){
 			if (number == 0 || number == 2){setTswiftStyle("Studio Ghibli")}
 			else {setTswiftStyle("8-Bit")}
@@ -84,7 +85,7 @@ export default function Home() {
 			{/* Michael Jordan */}
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
-					<Image src="/images/mj.jpg" width={512} height={376} alt="Michael Jordan"/>
+					<Image src="/images/mj.jpg" width={512} height={376} alt="Michael Jordan" priority/>
 				</div>
 				<div className={styles.exampleTransition}>
 					<Image
@@ -107,7 +108,7 @@ export default function Home() {
 			{/* Golden gate bridge */}
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
-					<Image src="/images/ggbridge.jpg" width={2048} height={1367} alt="Golden gate bridge" priority/>
+					<Image src="/images/ggbridge.jpg" width={2048} height={1367} alt="Golden gate bridge"/>
 				</div>
 				<div className={styles.exampleTransition}>
 					<Image
@@ -121,10 +122,11 @@ export default function Home() {
 				</div>
 
 				<div className={styles.imageContainer}>
-					<Image src="/images/golden_gate_impressionism.png" width={800} height={800} alt="" priority/>
+					<Image src="/images/golden_gate_impressionism.png" width={800} height={800} alt=""/>
 				</div>
 			</div>
 
+			<Upload />
 		</main>
 	)
 }

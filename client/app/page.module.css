@@ -4,7 +4,7 @@
 	justify-content: flex-start;
 	align-items: center;
 	padding: 30px 0px;
-	margin: 60px 0px;
+	margin: 50px 0px;
 	max-width: var(--max-width);
 }
 
@@ -41,6 +41,7 @@
 	height: 400px;
 	position: relative;
 	overflow: hidden;
+	border-radius: 9px;
 }
 .mainExample .imageContainer img{
 	width: 100%;
