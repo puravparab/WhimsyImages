@@ -22,17 +22,17 @@ export default function Home() {
 		};
 	}, [tswift]);
 
-	useEffect(() => {
-		// Change mj image every 7 seconds
-		const mjInterval = setInterval(() => {
-			handleImgChange("mj", (mj + 1) % 2);
-		}, 12000);
-
-		// Clean up intervals when the component is unmounted
-		return () => {
-			clearInterval(mjInterval);
-		};
-	}, [mj]);
+// 	useEffect(() => {
+// 		// Change mj image every 7 seconds
+// 		const mjInterval = setInterval(() => {
+// 			handleImgChange("mj", (mj + 1) % 2);
+// 		}, 12000);
+// 
+// 		// Clean up intervals when the component is unmounted
+// 		return () => {
+// 			clearInterval(mjInterval);
+// 		};
+// 	}, [mj]);
 	
 	// example: tswift, mj
 	// number: 0, 1, 2, etc
@@ -43,8 +43,8 @@ export default function Home() {
 			else {setTswiftStyle("8-Bit")}
 			setTswift(number)
 		} else if (example == "mj"){
-			if (number == 1){setMjStyle("8-Bit")}
-			else {setMjStyle("Studio Ghibli")}
+			if (number == 1){setMjStyle("Studio Ghibli")}
+			else {setMjStyle("8-Bit")}
 			setMj(number)
 		}
 	}
@@ -73,9 +73,9 @@ export default function Home() {
 				</div>
 
 				<div className={styles.imageContainer}>
-					{tswift === 0 && <Image src="/images/tswift_ghibli2.png" width={800} height={800} alt=""/>}
-					{tswift === 1 && <Image src="/images/tswift_8bit.png" width={800} height={800} alt="" />}
-					{tswift === 2 && <Image src="/images/tswift_ghibli.png" width={800} height={800} alt="" />}
+					{tswift === 0 && <Image src="/images/tswift_ghibli2.png" width={800} height={800} alt="" priority/>}
+					{tswift === 1 && <Image src="/images/tswift_8bit.png" width={800} height={800} alt="" priority/>}
+					{tswift === 2 && <Image src="/images/tswift_ghibli.png" width={800} height={800} alt="" priority/>}
 				</div>
 			</div>
 
@@ -97,8 +97,8 @@ export default function Home() {
 				</div>
 
 				<div className={styles.imageContainer}>
-					{mj === 0 && <Image src="/images/mj_8bit.png" width={800} height={800} alt=""/>}
-					{mj === 1 && <Image src="/images/mj_ghibli.png" width={800} height={800} alt=""/>}
+					{mj === 0 && <Image src="/images/mj_8bit.png" width={800} height={800} alt="" priority/>}
+					{/* {mj === 1 && <Image src="/images/mj_ghibli.png" width={800} height={800} alt="" priority/>} */}
 				</div>
 			</div>
 
