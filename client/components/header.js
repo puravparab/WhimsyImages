@@ -5,7 +5,7 @@ const Header = () => {
 	return (
 		<div className={styles.header}>
 			<div className={styles.title}>
-				<h1>Createmyavatar</h1>
+				<h1>whimsyimages</h1>
 			</div>
 			<nav className={styles.nav}>
 				<Link href="/pricing">Pricing</Link>

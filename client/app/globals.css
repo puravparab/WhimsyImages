@@ -5,9 +5,9 @@
 		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
 		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-	--heading-color: rgb(182, 140, 239);
+/*	--heading-color: rgb(182, 140, 239);*/
 	--primary-text: rgb(255, 255, 255);
-	--secondary-text: rgb(124, 105, 149);
+	--secondary-text: rgb(206, 163, 241);
 	--background-center: rgb(33, 33, 33);
 	--background-edge: rgb(28, 28, 28);
 	--footer-text: rgb(129, 129, 129);
