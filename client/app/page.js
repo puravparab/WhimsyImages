@@ -57,6 +57,7 @@ export default function Home() {
 				<p>Powered by gpt4 and dalle-3</p>
 			</div>
 
+			{/* Taylor Swift */}
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
 					<Image src="/images/tswift.jpg" width={790} height={699} alt="Taylor swift" priority/>
@@ -79,8 +80,8 @@ export default function Home() {
 				</div>
 			</div>
 
-			{/* <button onClick={() => {handleImgChange("tswift", (tswift + 1) % 3)}}>Next</button> */}
 
+			{/* Michael Jordan */}
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
 					<Image src="/images/mj.jpg" width={512} height={376} alt="Michael Jordan"/>
@@ -102,7 +103,27 @@ export default function Home() {
 				</div>
 			</div>
 
-			{/* <button onClick={() => {handleImgChange("mj", (mj + 1) % 2)}}>next</button> */}
+
+			{/* Golden gate bridge */}
+			<div className={styles.mainExample}>
+				<div className={styles.imageContainer}>
+					<Image src="/images/ggbridge.jpg" width={2048} height={1367} alt="Golden gate bridge" priority/>
+				</div>
+				<div className={styles.exampleTransition}>
+					<Image
+						src="/icons/white_arrow.svg"
+						width={200}
+						height={200}
+						alt="arrow pointing right"
+					/>
+					<span>In the style of</span>
+					<span>&quot;Impressionism&quot;</span>
+				</div>
+
+				<div className={styles.imageContainer}>
+					<Image src="/images/golden_gate_impressionism.png" width={800} height={800} alt="" priority/>
+				</div>
+			</div>
 
 		</main>
 	)
