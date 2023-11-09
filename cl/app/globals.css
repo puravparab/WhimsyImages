@@ -1,0 +1,44 @@
+:root {
+	--max-width: 1200px;
+	--border-radius: 12px;
+	--font-mono: sans-serif, ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+		'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+	--heading-color: rgb(182, 140, 239);
+	--primary-text: rgb(255, 255, 255);
+	--secondary-text: rgb(124, 105, 149);
+	--background-center: rgb(33, 33, 33);
+	--background-edge: rgb(28, 28, 28);
+	--footer-text: rgb(129, 129, 129);
+}
+
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	max-width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+	font-family: var(--font-mono);
+}
+
+body {
+	color: var(--primary-text);
+	letter-spacing: 0.1em;
+	background: radial-gradient(circle at center, var(--background-center) 15%, var(--background-edge) 60%);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

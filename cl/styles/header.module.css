@@ -1,0 +1,30 @@
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: var(--max-width);
+	padding: 20px 0px;
+}
+
+.header .title{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.header .title h1{
+	font-size: 20px;
+}
+
+.nav{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0px 30px;
+}
+.nav a{
+	font-size: 18px;
+	font-weight: 500;
+}
