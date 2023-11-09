@@ -59,22 +59,23 @@ export default function Home() {
 
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
-					<Image src="/images/tswift.jpg" width={790} height={699} priority/>
+					<Image src="/images/tswift.jpg" width={790} height={699} alt="Taylor swift" priority/>
 				</div>
 				<div className={styles.exampleTransition}>
 					<Image
 						src="/icons/white_arrow.svg"
 						width={200}
 						height={200}
+						alt="arrow pointing right"
 					/>
 					<span>In the style of</span>
-					<span>"{tswiftStyle}"</span>
+					<span>&quot;{tswiftStyle}&quot;</span>
 				</div>
 
 				<div className={styles.imageContainer}>
-					{tswift === 0 && <Image src="/images/tswift_ghibli2.png" width={800} height={800} />}
-					{tswift === 1 && <Image src="/images/tswift_8bit.png" width={800} height={800} />}
-					{tswift === 2 && <Image src="/images/tswift_ghibli.png" width={800} height={800} />}
+					{tswift === 0 && <Image src="/images/tswift_ghibli2.png" width={800} height={800} alt=""/>}
+					{tswift === 1 && <Image src="/images/tswift_8bit.png" width={800} height={800} alt="" />}
+					{tswift === 2 && <Image src="/images/tswift_ghibli.png" width={800} height={800} alt="" />}
 				</div>
 			</div>
 
@@ -82,21 +83,22 @@ export default function Home() {
 
 			<div className={styles.mainExample}>
 				<div className={styles.imageContainer}>
-					<Image src="/images/mj.jpg" width={512} height={376} />
+					<Image src="/images/mj.jpg" width={512} height={376} alt="Michael Jordan"/>
 				</div>
 				<div className={styles.exampleTransition}>
 					<Image
 						src="/icons/white_arrow.svg"
 						width={200}
 						height={200}
+						alt="arrow pointing right"
 					/>
 					<span>In the style of</span>
-					<span>"{mjStyle}"</span>
+					<span>&quot;{mjStyle}&quot;</span>
 				</div>
 
 				<div className={styles.imageContainer}>
-					{mj === 0 && <Image src="/images/mj_8bit.png" width={800} height={800} />}
-					{mj === 1 && <Image src="/images/mj_ghibli.png" width={800} height={800} />}
+					{mj === 0 && <Image src="/images/mj_8bit.png" width={800} height={800} alt=""/>}
+					{mj === 1 && <Image src="/images/mj_ghibli.png" width={800} height={800} alt=""/>}
 				</div>
 			</div>
 
