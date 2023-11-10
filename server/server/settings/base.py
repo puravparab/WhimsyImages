@@ -49,6 +49,9 @@ INSTALLED_APPS = [
 	# third-party libraries
 	'corsheaders',
 	'rest_framework',
+
+	# apps
+	'generate.apps.GenerateConfig',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +158,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # OPENAI
+OPENAI_KEY = os.getenv('OPENAI_KEY')

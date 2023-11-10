@@ -7,7 +7,7 @@ import styles from '../styles/upload.module.css'
 const Upload = () => {
 	const [uploadImg, setUploadedImg] = useState("/images/tswift.jpg")
 	const [createdImg, setCreatedImg] = useState("/images/tswift_ghibli2.png")
-	const [style, setStyle] = useState("Studio Ghibli")
+	const [style, setStyle] = useState("StudioGhibli")
 	const [gender, setGender] = useState("female")
 	const [ethnicity, setEthnicity] = useState("white")
 	
@@ -37,7 +37,7 @@ const Upload = () => {
 				<p>2. Choose your style</p>
 				<div className={styles.uploadOptions}>
 					<select value={style} onChange={handleStyleChange}>
-						<option value="Studio Ghibli">Studio Ghibli</option>
+						<option value="StudioGhibli">Studio Ghibli</option>
 						<option value="8-Bit">8-Bit</option>
 						<option value="Impressionism">Impressionism</option>
 						<option value="random">Random</option>

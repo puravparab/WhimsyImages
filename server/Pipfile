@@ -11,6 +11,8 @@ djangorestframework = "*"
 django-cors-headers = "*"
 pip = "*"
 whitenoise = "*"
+pillow = "*"
+python-magic = "*"
 
 [dev-packages]
 
