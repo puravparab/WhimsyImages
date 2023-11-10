@@ -1,20 +1,46 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
 import styles from '../styles/upload.module.css'
 
 const Upload = () => {
-	const [uploadImg, setUploadedImg] = useState("/images/tswift.jpg")
+	const [status, setStatus] = useState("")
+	const [uploadUrl, setUploadUrl] = useState("/images/tswift.jpg")
+	const [uploadImg, setUploadedImg] = useState(null)
 	const [createdImg, setCreatedImg] = useState("/images/tswift_ghibli2.png")
+
 	const [style, setStyle] = useState("StudioGhibli")
 	const [gender, setGender] = useState("female")
 	const [ethnicity, setEthnicity] = useState("white")
-	
 
+	useEffect(() => {
+		imageUrlToFile(uploadUrl, "default")
+	}, [])
+
+	// Convert image url to file
+	const imageUrlToFile = async (url, fileName) => {
+		try {
+			const response = await fetch(url);
+			if (!response.ok) {
+				throw new Error('Failed to fetch image');
+			}
+			const arrayBuffer = await response.arrayBuffer();
+			const blob = new Blob([arrayBuffer], { type: response.headers.get('content-type') });
+			// Create a File object with a specified name (optional)
+			const file = new File([blob], fileName || 'imageFile', { type: blob.type });
+			setUploadedImg(file)
+		} catch (error) {
+			console.error('Error converting image URL to file:', error);
+			setUploadedImg(null)
+		}
+	}
+
+	// Handle image upload
 	const handleUpload = (e) => {
 		const uploadedFile = e.target.files[0];
-		setUploadedImg(URL.createObjectURL(uploadedFile));
+		setUploadUrl(URL.createObjectURL(uploadedFile))
+		setUploadedImg(uploadedFile)
 	}
 	const handleStyleChange = (e) => {
 		setStyle(e.target.value)
@@ -24,6 +50,36 @@ const Upload = () => {
 	}
 	const handleEthnicityChange = (e) => {
 		setEthnicity(e.target.value)
+	}
+
+	// Create new version of the image
+	const whimsify = async () => {
+		// Prepare FormData to send to the API
+		const formData = new FormData();
+		formData.append('image', uploadImg);
+		formData.append('style', style);
+		formData.append('gender', gender);
+		formData.append('ethnicity', ethnicity);
+
+		const url = process.env.NEXT_PUBLIC_SERVER_URL + `/api/whimsy`
+
+		setStatus("generating your image ...")
+		// Make an API call to whimsy api
+		fetch(url, {
+			method: 'POST',
+			body: formData,
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			// Handle the response from the API as needed
+			const image_url = data["message"]["image_gen"]["data"][0]["url"]
+			setCreatedImg(image_url);
+			setStatus("")
+		})
+		.catch((error) => {
+			setStatus("Image generation failed.")
+			console.error('Error generating image:', error);
+		});
 	}
 	
 	return (
@@ -71,7 +127,8 @@ const Upload = () => {
 				</div>
 				
 				<p>4. Create your image</p>
-				<button className={styles.download}>Create</button>
+				<button className={styles.download} onClick={whimsify}>Create</button>
+				{status}
 
 				<p>5. Download your image</p>
 				<button className={styles.download}>Download</button>
@@ -79,7 +136,7 @@ const Upload = () => {
 			</div>
 			<div className={styles.uploadRight}>
 				<div className={styles.imageContainer}>
-					{uploadImg && <img src={uploadImg} alt="uploaded image"/>}
+					{uploadUrl && <img src={uploadUrl} alt="uploaded image"/>}
 				</div>
 				<Image className={styles.arrowDown} src="/icons/white_arrow.svg" width={50} height={50} alt="arrow pointing down" />
 				<div className={styles.imageContainer}>
