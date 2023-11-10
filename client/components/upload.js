@@ -6,6 +6,7 @@ import styles from '../styles/upload.module.css'
 
 const Upload = () => {
 	const [uploadImg, setUploadedImg] = useState("/images/tswift.jpg")
+	const [createdImg, setCreatedImg] = useState("/images/tswift_ghibli2.png")
 	const [style, setStyle] = useState("Studio Ghibli")
 	const [gender, setGender] = useState("female")
 	const [ethnicity, setEthnicity] = useState("white")
@@ -69,17 +70,20 @@ const Upload = () => {
 					</select>
 				</div>
 				
-				
-				<p>4. Download your image</p>
+				<p>4. Create your image</p>
+				<button className={styles.download}>Create</button>
+
+				<p>5. Download your image</p>
 				<button className={styles.download}>Download</button>
 
 			</div>
 			<div className={styles.uploadRight}>
 				<div className={styles.imageContainer}>
-					{uploadImg && <img src={uploadImg} alt=""/>}
+					{uploadImg && <img src={uploadImg} alt="uploaded image"/>}
 				</div>
+				<Image className={styles.arrowDown} src="/icons/white_arrow.svg" width={50} height={50} alt="arrow pointing down" />
 				<div className={styles.imageContainer}>
-					
+					{createdImg && <img src={createdImg} alt="created image"/>}
 				</div>
 			</div>
 		</div>

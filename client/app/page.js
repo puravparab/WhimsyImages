@@ -55,7 +55,7 @@ export default function Home() {
 		<main className={styles.main}>
 			<div className={styles.mainTitle}>
 				<h2>Reimagine your Images</h2>
-				<p>Powered by gpt4 and dalle-3</p>
+				<p>Powered by gpt4-vision and dalle-3</p>
 			</div>
 
 			{/* Taylor Swift */}
