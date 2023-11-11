@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
@@ -66,6 +65,12 @@ const Upload = () => {
 
 	// Create new version of the image
 	const whimsify = async () => {
+		if (uploadImg.size > 1024 * 1024){
+			setStatus("Image should be less than 1MB")
+			console.error('Image file greater than 1MB', error);
+			return
+		}
+
 		// Prepare FormData to send to the API
 		const formData = new FormData();
 		formData.append('image', uploadImg);
@@ -100,7 +105,7 @@ const Upload = () => {
 				<h3>Transform your photos</h3>
 
 				<p>1. Upload your image (less than 1MB)</p>
-				<input type="file" id="imageUpload" onChange={handleUpload} />
+				<input type="file" id="imageUpload" onChange={handleUpload} accept="image/*"/>
 
 				<p>2. Choose your style</p>
 				<div className={styles.uploadOptions}>

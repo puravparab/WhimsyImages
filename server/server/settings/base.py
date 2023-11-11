@@ -17,6 +17,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
+# SENTRY
+import sentry_sdk
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -159,3 +163,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # OPENAI
 OPENAI_KEY = os.getenv('OPENAI_KEY')
+
+# SENTRY
+
+sentry_sdk.init(
+	dsn=os.getenv("SENTRY_DSN"),
+	enable_tracing=True,
+)
