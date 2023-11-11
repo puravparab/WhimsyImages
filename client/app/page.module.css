@@ -79,6 +79,7 @@
 	}
 	.exampleTransition{
 		gap: 5px 0px;
+		width: 150px;
 	}
 	.exampleTransition img{
 		width: 100px;
@@ -150,6 +151,9 @@
 	.mainExample .imageContainer{
 		width: 110px;
 		height: 110px;
+	}
+	.exampleTransition{
+		max-width: 100px;
 	}
 	.exampleTransition img{
 		width: 40px;
