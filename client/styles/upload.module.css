@@ -104,3 +104,141 @@
 .uploadRight .arrowDown{
 	transform: rotate(90deg);
 }
+
+@media (max-width: 1250px){
+	.uploadContainer{
+		width: 90%;
+		gap: 0px 40px;
+	}
+	.uploadRight .imageContainer{
+		width: 300px;
+		height: 300px;
+	}
+	.uploadRight .imageContainer p{
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 870px){
+	.uploadContainer{
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		gap: 30px 0px;
+		margin: 20px 0px;
+		padding: 30px 0px;
+	}
+
+	.uploadLeft{
+		gap: 15px 0px;
+		padding: 25px 20px;
+		margin: 20px 0px 0px;
+		width: 500px;
+	}
+	.uploadLeft h3{
+		font-size: 30px;
+		text-align: center;
+		width: 100%;
+	}
+	.uploadLeft p{
+		font-size: 18px;
+	}
+
+	.uploadOptions{
+		margin: 0px;
+	}
+	.uploadLeft label{
+		font-size: 14px;
+	}
+	.uploadLeft input, .uploadLeft select{
+		margin: 0px 20px 0px 20px;
+		font-size: 12px;
+		border: none;
+		outline: none;
+	}
+	.uploadLeft select{
+		margin: 0px 20px 0px 20px;
+		padding: 2px;
+		max-width: 180px;
+	}
+
+	.uploadLeft .download{
+		font-size: 18px;
+		font-weight: 500;
+		padding: 8px 12px;
+		margin: 0px 20px 0px 20px;
+		width: 90%;
+	}
+
+	.uploadRight{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 20px;
+		padding: 20px;
+	}
+	.uploadRight .imageContainer{
+		width: 200px;
+		height: 200px;
+	}
+	.uploadRight .imageContainer p{
+		font-size: 14px;
+		width: 90%;
+	}
+	.uploadRight .arrowDown{
+		transform: rotate(0deg);
+	}
+}
+
+@media (max-width: 550px){
+	.uploadContainer{
+		gap: 35px 0px;
+		margin: 5px 0px;
+		padding: 10px 0px;
+	}
+	.uploadLeft{
+		gap: 10px 0px;
+		padding: 25px 20px;
+		margin: 20px 0px 0px;
+		width: 98%;
+	}
+	.uploadLeft h3{
+		font-size: 28px;
+	}
+	.uploadLeft p{
+		font-size: 16px;
+	}
+
+	.uploadLeft label{
+		font-size: 12px;
+	}
+
+	.uploadLeft .download{
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	.uploadRight{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0px 11px;
+		padding: 20px;
+	}
+	.uploadRight .imageContainer{
+		width: 160px;
+		height: 160px;
+	}
+	.uploadRight .imageContainer p{
+		font-size: 14px;
+		width: 90%;
+	}
+	.uploadRight .arrowDown{
+		width: 25px;
+		height: 25px;
+		transform: rotate(0deg);
+	}
+}

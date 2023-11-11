@@ -33,4 +33,23 @@
 }
 .nav a:hover{
 	color: var(--secondary-text);
-};
+}
+
+@media (max-width: 1250px){
+	.header{
+		max-width: var(--max-width-second);
+		width: 90%;
+	}
+}
+
+@media (max-width: 400px){
+	.header {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 20px 0px;
+	}
+	.header .title h1{
+		font-size: 25px;
+	}
+}

@@ -67,7 +67,7 @@ const Upload = () => {
 	const whimsify = async () => {
 		if (uploadImg.size > 1024 * 1024){
 			setStatus("Image should be less than 1MB")
-			console.error('Image file greater than 1MB', error);
+			console.error('Image file greater than 1MB');
 			return
 		}
 

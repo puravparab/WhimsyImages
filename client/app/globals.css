@@ -1,5 +1,6 @@
 :root {
 	--max-width: 1200px;
+	--max-width-second: 1000px;
 	--border-radius: 12px;
 	--font-mono: sans-serif, ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
 		'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
