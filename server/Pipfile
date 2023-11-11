@@ -13,6 +13,8 @@ pip = "*"
 whitenoise = "*"
 pillow = "*"
 python-magic = "*"
+gunicorn = "*"
+sentry-sdk = {extras = ["django"], version = "*"}
 
 [dev-packages]
 
