@@ -12,7 +12,7 @@ const Upload = () => {
 
 	const [style, setStyle] = useState("StudioGhibli")
 	const [gender, setGender] = useState("female")
-	const [ethnicity, setEthnicity] = useState("white")
+	const [race, setRace] = useState("white")
 
 	useEffect(() => {
 		imageUrlToFile(uploadUrl, "default")
@@ -42,14 +42,26 @@ const Upload = () => {
 		setUploadUrl(URL.createObjectURL(uploadedFile))
 		setUploadedImg(uploadedFile)
 	}
+	// Handle image download
+	const handleDownload = (e) => {
+		e.preventDefault();
+    const downloadLink = document.createElement('a');
+    downloadLink.download = 'whimsify.jpg';
+    downloadLink.href = createdImg;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.removeChild(downloadLink);
+  };
+
+  // Functions for options
 	const handleStyleChange = (e) => {
 		setStyle(e.target.value)
 	}
 	const handleGenderChange = (e) => {
 		setGender(e.target.value)
 	}
-	const handleEthnicityChange = (e) => {
-		setEthnicity(e.target.value)
+	const handleRaceChange = (e) => {
+		setRace(e.target.value)
 	}
 
 	// Create new version of the image
@@ -59,11 +71,11 @@ const Upload = () => {
 		formData.append('image', uploadImg);
 		formData.append('style', style);
 		formData.append('gender', gender);
-		formData.append('ethnicity', ethnicity);
+		formData.append('race', race);
 
 		const url = process.env.NEXT_PUBLIC_SERVER_URL + `/api/whimsy`
 
-		setStatus("generating your image ...")
+		setStatus("Generating image...")
 		// Make an API call to whimsy api
 		fetch(url, {
 			method: 'POST',
@@ -77,7 +89,7 @@ const Upload = () => {
 			setStatus("")
 		})
 		.catch((error) => {
-			setStatus("Image generation failed.")
+			setStatus("Image Generation Failed.")
 			console.error('Error generating image:', error);
 		});
 	}
@@ -87,7 +99,7 @@ const Upload = () => {
 			<div className={styles.uploadLeft}>
 				<h3>Transform your photos</h3>
 
-				<p>1. Upload your image</p>
+				<p>1. Upload your image (less than 1MB)</p>
 				<input type="file" id="imageUpload" onChange={handleUpload} />
 
 				<p>2. Choose your style</p>
@@ -100,7 +112,7 @@ const Upload = () => {
 					</select>
 				</div>
 
-				<p>3. Add other details (if neccesary)</p>
+				<p>3. Add other details</p>
 				<div className={styles.uploadOptions}>
 					<label>Gender:</label>
 					<select value={gender} onChange={handleGenderChange}>
@@ -113,8 +125,8 @@ const Upload = () => {
 					</select>
 				</div>
 				<div className={styles.uploadOptions}>
-					<label>Ethnicity:</label>
-					<select value={ethnicity} onChange={handleEthnicityChange}>
+					<label>Race:</label>
+					<select value={race} onChange={handleRaceChange}>
 						<option value="none">None</option>
 						<option value="aian">American Indian and Alaska Native</option>
 						<option value="black">Black</option>
@@ -128,21 +140,24 @@ const Upload = () => {
 				
 				<p>4. Create your image</p>
 				<button className={styles.download} onClick={whimsify}>Create</button>
-				{status}
 
 				<p>5. Download your image</p>
-				<button className={styles.download}>Download</button>
-
+				<button className={styles.download} onClick={handleDownload}>Download</button>
 			</div>
+
 			<div className={styles.uploadRight}>
 				<div className={styles.imageContainer}>
 					{uploadUrl && <img src={uploadUrl} alt="uploaded image"/>}
 				</div>
 				<Image className={styles.arrowDown} src="/icons/white_arrow.svg" width={50} height={50} alt="arrow pointing down" />
 				<div className={styles.imageContainer}>
-					{createdImg && <img src={createdImg} alt="created image"/>}
+					{status != ""
+						? <p>{status}</p>
+						: <img src={createdImg} alt="created image"/>
+					}
 				</div>
 			</div>
+
 		</div>
 	)
 }

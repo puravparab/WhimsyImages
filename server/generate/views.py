@@ -23,7 +23,7 @@ body: image, style, ethnicity, gender
 def whimsy(request):
 	image = request.data.get("image")
 	style = request.data.get("style")
-	ethnicity = request.data.get("ethnicity")
+	race = request.data.get("race")
 	gender = request.data.get("gender")
 
 	# If image not uploaded
@@ -79,7 +79,7 @@ def whimsy(request):
 			size = "1024x1024"
 			quality = "standard"
 			n = 1
-			image_res = generate_image(style, ethnicity, gender, model, prompt, size, quality, n)
+			image_res = generate_image(style, race, gender, model, prompt, size, quality, n)
 
 			if not image_res.ok:
 				return Response(

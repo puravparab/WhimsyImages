@@ -11,9 +11,9 @@ const Header = () => {
 				
 			</div>
 			<nav className={styles.nav}>
-				<Link href="#upload">Try it</Link>
+				<Link href="/#upload">Try it</Link>
 				<Link href="/pricing">Pricing</Link>
-				<Link href="/about">How it works</Link>
+				{/* <Link href="/about">How it works</Link> */}
 			</nav>
 		</div>
 	)
