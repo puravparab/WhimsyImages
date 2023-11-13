@@ -1,6 +1,6 @@
 # Whimsy Images
 
-[]()
+![Whimsyimages-demo](assets/demo.gif)
 
 ## How does it work
 
